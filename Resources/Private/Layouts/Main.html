@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
+
+<f:be.container pageTitle="{f:translate(id: \'title\')}" enableJumpToUrl="false" enableClickMenu="false" loadPrototype="false" loadScriptaculous="false" loadExtJs="false" loadExtJsTheme="true" loadJQuery="true"
+
+	includeCssFiles="{
+		0:'{f:uri.resource(path:\'Contrib/jQueryUI/jquery-ui-1.10.3.custom.min.css\')}',
+		1:'{f:uri.resource(path:\'Contrib/LoadMask/jquery.loadmask.css\')}',
+		2:'{f:uri.resource(path:\'Css/main.css\')}',
+		3:'contrib/jquery/jquery.clearable.css'
+	}"
+	includeJsFiles="{
+		0:'contrib/jquery/jquery.dataTables-1.9.4.min.js',
+		1:'{f:uri.resource(path:\'Contrib/jQueryUI/jquery-ui-1.10.3.min.js\')}',
+		2:'{f:uri.resource(path:\'JavaScript/jquery-validate-1.11.1.min.js\')}',
+		3:'{f:uri.resource(path:\'JavaScript/jquery.expander.min.js\')}',
+		4:'contrib/jquery/jquery.clearable.js',
+		5:'{f:uri.resource(path:\'Contrib/LoadMask/jquery.loadmask.js\')}'
+		}">
+
+	<div id="typo3-docheader">
+		<div class="typo3-docheader-functions">
+		</div>
+		<div class="typo3-docheader-buttons">
+			<f:render section="docheader-buttons" />
+		</div>
+	</div>
+	<div id="typo3-docbody">
+		<div id="typo3-inner-docbody" class="tx-sqlprofiler">
+			<f:render section="module-headline" />
+			<f:render section="Content" />
+		</div>
+	</div>
+</f:be.container>

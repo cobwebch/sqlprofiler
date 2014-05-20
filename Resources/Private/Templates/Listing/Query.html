@@ -1,0 +1,49 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:sql="http://typo3.org/ns/Cobweb/Sqlprofiler/ViewHelpers"
+      xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
+
+<f:layout name="main" />
+
+<f:section name="docheader-buttons">
+</f:section>
+
+<f:section name="module-headline">
+	<h1><f:translate id="title" /></h1>
+</f:section>
+
+<f:section name="Content">
+	<f:if condition="{queries}->f:count()">
+		<f:then>
+			<p><f:translate id="queries_info" /></p>
+			<p><f:link.action action="index" class="t3-button"><f:translate id="back_to_runs" /></f:link.action></p>
+			<table class="t3-table">
+				<thead>
+					<tr>
+						<th><f:translate id="count" /></th>
+						<th><f:translate id="average_time" /></th>
+						<th><f:translate id="query" /></th>
+					</tr>
+				</thead>
+				<tbody>
+					<f:for each="{queries}" as="queryInformation">
+						<tr>
+							<td>
+								<f:link.action action="details" arguments="{query: queryInformation.uid}">
+									{queryInformation.count}
+								</f:link.action>
+							</td>
+							<td>
+								<f:link.action action="details" arguments="{query: queryInformation.uid}">
+									<sql:format.milliseconds>{queryInformation.average_time}</sql:format.milliseconds>
+								</f:link.action>
+							</td>
+							<td>
+								<f:link.action action="details" arguments="{query: queryInformation.uid}">{queryInformation.query}</f:link.action>
+							</td>
+						</tr>
+					</f:for>
+				</tbody>
+			</table>
+		</f:then>
+	</f:if>
+</f:section>

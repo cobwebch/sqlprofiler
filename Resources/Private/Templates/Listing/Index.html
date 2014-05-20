@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
+
+<f:layout name="main" />
+
+<f:section name="docheader-buttons">
+</f:section>
+
+<f:section name="module-headline">
+	<h1><f:translate id="title" /></h1>
+</f:section>
+
+<f:section name="Content">
+	<f:if condition="{runs}->f:count()">
+		<f:then>
+			<p><f:translate id="runs_info" /></p>
+			<table class="t3-table">
+				<thead>
+					<tr>
+						<th><f:translate id="date_time" /></th>
+						<th><f:translate id="context" /></th>
+						<th><f:translate id="page" /></th>
+					</tr>
+				</thead>
+				<tbody>
+					<f:for each="{runs}" as="runInformation">
+						<tr>
+							<td>
+								<f:link.action action="query" arguments="{run: runInformation.uid}">
+									<f:format.date format="d.m.Y H:i:s">@{runInformation.tstamp}</f:format.date>
+								</f:link.action>
+							</td>
+							<td>
+								<f:link.action action="query" arguments="{run: runInformation.uid}">{runInformation.context}</f:link.action>
+							</td>
+							<td>
+								<f:if condition="{runInformation.page_id}">
+									<f:then>
+										<f:link.action action="query" arguments="{run: runInformation.uid}">{runInformation.page_id}</f:link.action>
+									</f:then>
+									<f:else>
+										-
+									</f:else>
+								</f:if>
+							</td>
+						</tr>
+					</f:for>
+				</tbody>
+			</table>
+		</f:then>
+	</f:if>
+</f:section>

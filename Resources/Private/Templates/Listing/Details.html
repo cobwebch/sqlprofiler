@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+	  xmlns:sql="http://typo3.org/ns/Cobweb/Sqlprofiler/ViewHelpers"
+      xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
+
+<f:layout name="main" />
+
+<f:section name="docheader-buttons">
+</f:section>
+
+<f:section name="module-headline">
+	<h1><f:translate id="title" /></h1>
+</f:section>
+
+<f:section name="Content">
+	<f:if condition="{details}->f:count()">
+		<f:then>
+			<p><f:translate id="details_info" /></p>
+			<p>{query.query}</p>
+			<p>
+				<f:link.action action="index" class="t3-button"><f:translate id="back_to_runs" /></f:link.action>
+				<f:link.action action="query" arguments="{run: query.run_id}" class="t3-button"><f:translate id="back_to_queries" /></f:link.action>
+			</p>
+			<table class="t3-table">
+				<thead>
+					<tr>
+						<th><f:translate id="execution_time" /></th>
+						<th><f:translate id="debug_trail" /></th>
+					</tr>
+				</thead>
+				<tbody>
+					<f:for each="{details}" as="detailInformation">
+						<tr>
+							<td>
+								<sql:format.milliseconds>{detailInformation.execution_time}</sql:format.milliseconds>
+							</td>
+							<td>
+								{detailInformation.debug_trail}
+							</td>
+						</tr>
+					</f:for>
+				</tbody>
+			</table>
+		</f:then>
+	</f:if>
+</f:section>

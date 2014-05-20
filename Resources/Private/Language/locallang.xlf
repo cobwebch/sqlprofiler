@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-05-05T08:28:26Z" product-name="sqlprofiler">
+		<header/>
+		<body>
+			<trans-unit id="mlang_tabs_tab" xml:space="preserve">
+				<source>SQL Profiler</source>
+			</trans-unit>
+			<trans-unit id="mlang_labels_tablabel" xml:space="preserve">
+				<source>SQL Profiler</source>
+			</trans-unit>
+			<trans-unit id="mlang_labels_tabdescr" xml:space="preserve">
+				<source>View logged queries for each run, with execution time and count statistics. Debug trail available.</source>
+			</trans-unit>
+			<trans-unit id="title" xml:space="preserve">
+				<source>SQL Profiler</source>
+			</trans-unit>
+			<trans-unit id="no_runs" xml:space="preserve">
+				<source>There are currently no runs in the database.</source>
+			</trans-unit>
+			<trans-unit id="runs_info" xml:space="preserve">
+				<source>This is the list of runs. Click on any row to view more details.</source>
+			</trans-unit>
+			<trans-unit id="back_to_runs" xml:space="preserve">
+				<source>Back to the list of runs</source>
+			</trans-unit>
+			<trans-unit id="queries_info" xml:space="preserve">
+				<source>This is the list of queries for the selected run. Click on any row to view more details.</source>
+			</trans-unit>
+			<trans-unit id="details_info" xml:space="preserve">
+				<source>Details for query:</source>
+			</trans-unit>
+			<trans-unit id="back_to_queries" xml:space="preserve">
+				<source>Back to the list of queries</source>
+			</trans-unit>
+			<trans-unit id="date_time" xml:space="preserve">
+				<source>Date and time</source>
+			</trans-unit>
+			<trans-unit id="context" xml:space="preserve">
+				<source>Execution context</source>
+			</trans-unit>
+			<trans-unit id="page" xml:space="preserve">
+				<source>Page</source>
+			</trans-unit>
+			<trans-unit id="average_time" xml:space="preserve">
+				<source>Average time (ms)</source>
+			</trans-unit>
+			<trans-unit id="count" xml:space="preserve">
+				<source>Count</source>
+			</trans-unit>
+			<trans-unit id="query" xml:space="preserve">
+				<source>SQL query</source>
+			</trans-unit>
+			<trans-unit id="execution_time" xml:space="preserve">
+				<source>Execution time (ms)</source>
+			</trans-unit>
+			<trans-unit id="debug_trail" xml:space="preserve">
+				<source>Debug trail</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
