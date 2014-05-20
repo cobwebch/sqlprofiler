@@ -1,7 +1,7 @@
 SQL Profiler
 ============
 
-This extension overrides TYPO3 CMS base database connection class (`\TYPO3\CMS\Core\Database\DatabaseConnection`)
+This extension overrides TYPO3 CMS base database connection class (`\\TYPO3\\CMS\\Core\\Database\\DatabaseConnection`)
 in order to log all queries executed during a single TYPO3 CMS script run. A BE module is available
 to drill down in the collected information.
 
@@ -20,7 +20,7 @@ This extension is compatible only with TYPO3 CMS 6.2.
 
 .. warning::
 
-   Since this extension works by overriding `\TYPO3\CMS\Core\Database\DatabaseConnection`,
+   Since this extension works by overriding `\\TYPO3\\CMS\\Core\\Database\\DatabaseConnection`,
    it is not compatible with DBAL.
 
 
