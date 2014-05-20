@@ -1,5 +1,5 @@
 <?php
-namespace Cobweb\Sqlprofiler\ViewHelpers\Format;
+namespace Cobweb\Sqlprofiler\ViewHelpers;
 
 /***************************************************************
  *  Copyright notice
@@ -26,21 +26,37 @@ namespace Cobweb\Sqlprofiler\ViewHelpers\Format;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use TYPO3\CMS\Backend\Utility\BackendUtility;
 
 /**
- * Takes a number considered to be microseconds and formats it to milliseconds.
+ * Takes a page number and displays its title and icon.
  *
  * @author Francois Suter (Cobweb) <typo3@cobweb.ch>
  * @package TYPO3
  */
-class MillisecondsViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+class PageTitleViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
 	/**
-	 * Formats the given number.
+	 * Given a page id, returns its icon and title (without link or contextual menu).
 	 *
-	 * @return string The formatted number
+	 * @param integer $id Id of a page
+	 * @return string The page icon and title
 	 */
-	public function render() {
-		$stringToFormat = intval($this->renderChildren()) / 1000;
-		return number_format($stringToFormat, 2);
+	public function render($id) {
+		$id = intval($id);
+		if (!empty($id)) {
+			$page = BackendUtility::getRecord('pages', $id);
+			// If the page doesn't exist, the result is null, but we need rather an empty array
+			if ($page === NULL) {
+				$page = array();
+			}
+			$pageTitle = BackendUtility::getRecordTitle('pages', $page, 1);
+			$iconAltText = BackendUtility::getRecordIconAltText($page, 'pages');
+
+			// Create icon for record
+			$elementIcon = \TYPO3\CMS\Backend\Utility\IconUtility::getSpriteIconForRecord('pages', $page, array('title' => $iconAltText));
+			return $elementIcon . $pageTitle;
+		} else {
+			return '';
+		}
 	}
 }
